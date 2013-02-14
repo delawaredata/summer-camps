@@ -1,0 +1,113 @@
+{% extends "camps/main.html" %}
+{% block main_content %}
+	<div class="row">
+		<div class="span4">
+			<div class="well">
+				<h3>
+					{{ org.organization }}
+				</h3>
+				<p>
+					<strong>Contact:</strong><br>
+					{{ org.user.get_full_name }}
+				</p>
+				<p>
+					<strong>Address:</strong><br>
+					{{ org.address }}<br>
+					{{ org.city }}, {{ org.state }} {{ org.zip_code }}
+				</p>
+				<p>
+					<strong>Phone:</strong><br>
+					{{ org.phone }}
+				</p>
+				<p>
+					<strong>E-mail:</strong><br>
+					{{ org.user.email }}
+				</p>
+				<p>
+					<strong>Website:</strong><br>
+					{% if org.website %}
+					<a href="{{ org.website }}">{{ org.website|cut:"http://" }}</a>
+					{% else %}
+					None
+					{% endif %}
+				</p>
+				<hr>
+				<ul class="nav nav-tabs nav-stacked">
+					<li>
+						<a href="{% url camps.views.edit_organization_page %}">Edit Organziation Details</a>
+					</li>
+					{% if user.is_staff %}
+					<li>
+						<a href="http://data.delawareonline.com/webapps/admin/camps/">Admin Panel</a>
+					</li>
+					{% endif %}
+					<li>
+						<a href="{% url camps.views.userlogout %}">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="span8">
+			{% if message %}
+			<div class="alert alert-info">
+			    <button type="button" class="close" data-dismiss="alert">&times;</button>
+			    {{ message }}
+			</div>
+			{% endif %}
+			<div class="row">
+				<div class="span4">
+					<h2>Your camps:</h2>
+				</div>
+				<div class="span4">
+					<a href="{% url camps.views.add_camp_page %}" class="btn btn-large btn-block btn-warning">Add Camp</a>
+				</div>
+			</div>
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Category</th>
+						<th>Start Date</th>
+						<th>End Date</th>
+						<th>Last Updated</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for camp in org.camp_set.all %}
+					<tr>
+						<td>
+							{{ camp.camp_name }}
+						</td>
+						<td>
+							{{ camp.get_category_display }}
+						</td>
+						<td>
+							{{ camp.start_date }}
+						</td>
+						<td>
+							{% if camp.end_date %}
+								{{ camp.end_date }}
+							{% else %}
+								-
+							{% endif %}
+						</td>
+						<td>
+							{{ camp.last_updated }}
+						</td>
+						<td>
+							<a href="{% url camps.views.edit_camp_page org_id=org.id camp_id=camp.id %}">edit</a>
+						</td>
+					</tr>
+				{% empty %}
+				<tr>
+					<td colspan="6">
+						<h3 style="text-align: center;">You haven't added any camps yet.</h3>
+					</td>
+				</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock main_content %}

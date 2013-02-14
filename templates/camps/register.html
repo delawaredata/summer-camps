@@ -1,0 +1,214 @@
+{% extends "camps/main.html" %}
+{% block main_content %}
+	<div class="row">
+		<div class="span12">
+			<form method="POST" action="">
+			    {% csrf_token %}
+				{% for error in userform.non_field_errors %}
+					<div class="alert alert-error">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						{{ error|escape }}
+					</div>
+				{% endfor %}
+				{% for error in userprofileform.non_field_errors %}
+					<div class="alert alert-error">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>
+						{{ error|escape }}
+					</div>
+				{% endfor %}
+			    <div class="row">
+			    	<div class="span6">
+			    		<fieldset>
+			    			{% if edit %}
+			    				<legend>Change Password</legend>
+			    				<a href="{% url camps.views.change_password_page %}" class="btn">Change Password</a>
+			    			{% else %}
+						    	<legend>Login info</legend>
+						    	{% for error in userform.username.errors %}
+					    			<div class="alert alert-error">
+						    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+						    			{{ error|escape }}
+									</div>
+						    	{% endfor %}
+								<label>
+									Username
+								</label>
+								{{ userform.username }}<span class="help-inline"><small>30 or fewer characters for usernames.<br>Use only letters, numbers, @, -, or _. No spaces.</small></span>
+								<hr>
+								{% for error in userform.password.errors %}
+					    			<div class="alert alert-error">
+						    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+						    			{{ error|escape }}
+									</div>
+						    	{% endfor %}
+								<label>
+									Password
+								</label>
+								{{ userform.password }}
+								{% for error in userform.password2.errors %}
+					    			<div class="alert alert-error">
+						    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+						    			{{ error|escape }}
+									</div>
+						    	{% endfor %}
+								<label>
+									Password (again)
+								</label>
+								{{ userform.password2 }}
+			    			{% endif %}
+					    </fieldset>
+			    	</div>
+			    	<div class="span6">
+			    		<fieldset>
+					    	<legend>
+					    		Organization info <small>(* Required)</small>
+					    	</legend>
+					    	{% for error in userprofileform.organization.errors %}
+				    			<div class="alert alert-error">
+					    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+					    			{{ error|escape }}
+								</div>
+					    	{% endfor %}
+					    	<label>
+					    		Organization name *
+					    	</label>
+					    	{{ userprofileform.organization }}
+					    	<div class="row">
+					    		<div class="span3">
+					    			{% for error in userform.first_name.errors %}
+						    			<div class="alert alert-error">
+							    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+							    			{{ error|escape }}
+										</div>
+							    	{% endfor %}
+							    	<label>
+							    		Contact first name *
+							    	</label>
+							    	{{ userform.first_name }}
+					    		</div>
+					    		<div class="span3">
+					    			{% for error in userform.last_name.errors %}
+						    			<div class="alert alert-error">
+							    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+							    			{{ error|escape }}
+										</div>
+							    	{% endfor %}
+							    	<label>
+							    		Contact last name *
+							    	</label>
+							    	{{ userform.last_name }}
+					    		</div>
+					    	</div>
+					    	<div class="row">
+					    		<div class="span3">
+						    		{% for error in userform.email.errors %}
+						    			<div class="alert alert-error">
+							    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+							    			{{ error|escape }}
+										</div>
+						    		{% endfor %}
+					    			<label>
+					    				E-mail *
+					    			</label>
+							    	{{ userform.email }}
+					    		</div>
+					    		<div class="span3">
+						    		{% for error in userprofileform.phone.errors %}
+						    			<div class="alert alert-error">
+							    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+							    			{{ error|escape }}
+										</div>
+						    		{% endfor %}
+					    			<label>
+					    				Phone number *
+					    			</label>
+							    	{{ userprofileform.phone }}
+					    		</div>
+					    	</div>
+					    	{% for error in userprofileform.website.errors %}
+				    			<div class="alert alert-error">
+					    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+					    			{{ error|escape }}
+								</div>
+					    	{% endfor %}
+					    	<label>
+					    		Website
+					    	</label>
+					    	{% if edit %}
+					    		{{ userprofileform.website }}
+					    	{% else %}
+					    	<div class="input-prepend">
+					    		<span class="add-on">http://</span>
+								{{ userprofileform.website }}
+					    	</div>
+					    	{% endif %}
+					    	{% for error in userprofileform.address.errors %}
+				    			<div class="alert alert-error">
+					    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+					    			{{ error|escape }}
+								</div>
+					    	{% endfor %}
+					    	<label>
+					    		Address *
+					    	</label>
+							{{ userprofileform.address }}
+					    	<div class="row">
+					    		<div class="span3">
+					    			{% for error in userprofileform.city.errors %}
+						    			<div class="alert alert-error">
+							    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+							    			{{ error|escape }}
+										</div>
+							    	{% endfor %}
+					    			<label>
+							    		City *
+							    	</label>
+									{{ userprofileform.city }}
+					    		</div>
+					    		<div class="span3">
+					    			{% for error in userprofileform.state.errors %}
+						    			<div class="alert alert-error">
+							    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+							    			{{ error|escape }}
+										</div>
+							    	{% endfor %}
+					    			<label>
+							    		State *
+							    	</label>
+									{{ userprofileform.state }}
+					    		</div>
+					    	</div>
+					    	{% for error in userprofileform.zip_code.errors %}
+				    			<div class="alert alert-error">
+					    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+					    			{{ error|escape }}
+								</div>
+					    	{% endfor %}
+					    	<label>
+					    		ZIP code *
+					    	</label>
+							{{ userprofileform.zip_code }}
+					    </fieldset>
+			    	</div>
+			    </div>
+			    <hr>
+			    <div class="row">
+			    	{% if edit %}
+			    	<div class="span6">
+						<a href="{% url camps.views.management_page %}" class="btn">Back to Management Page</a>			    		
+			    	</div>
+			    	{% endif %}
+			    	<div class="span1 offset2">
+			    		<button type="submit" class="btn btn-large">
+			    			{% if edit %}
+			    				Save
+			    			{% else %}
+			    				Register
+			    			{% endif %}
+			    		</button>
+			    	</div>
+			    </div>
+			</form>
+		</div>
+	</div>
+{% endblock main_content %}

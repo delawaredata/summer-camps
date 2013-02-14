@@ -1,0 +1,1148 @@
+{% comment %}    
+<!--
+##############################################################
+##############################################################
+##      __                      __    __            __      ##
+##     / /_  ____ _________    / /_  / /_____ ___  / /      ##
+##    / __ \/ __ `/ ___/ _ \  / __ \/ __/ __ `__ \/ /       ##
+##   / /_/ / /_/ (__  )  __/ / / / / /_/ / / / / / /        ##
+##  /_.___/\__,_/____/\___(_)_/ /_/\__/_/ /_/ /_/_/         ##
+##                                                          ##
+##      This is the base template for all of our            ##
+##      Django apps. It includes both the official          ##
+##      ODY header and ODY footer. To use this              ##
+##      template include it at the top of the app's         ##
+##      main template file like so:                         ##
+##              {% extends 'base.html' %}                   ##
+##                                                          ##
+##                                                          ##
+##      TO USE EFFECTIVELY, extend the following            ##
+##      block tags in the app's main template:              ##
+##          1. main_title                                   ##
+##              Title for html page.                        ##
+##          2. main_styles                                  ##
+##              Include main css style sheet here.          ##
+##          3. main_content                                 ##
+##              ALL content must go inside this tag.        ##
+##                                                          ##
+##############################################################
+##############################################################
+
+-->
+{% endcomment %}
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <!-- CoMo 0.30 Rev 5656/1682 2012-02-17 17:35 -->
+    <!-- GEL/GCI Version: 1.1.1.1958 -->
+
+<head>
+    <!--
+        We are using some Twitter Bootstrap elements, including some
+        awesome little icons courtesy of Glyphicons. Check them out at:
+        http://twitter.github.com/bootstrap
+        http://glyphicons.com/
+    -->
+    <title id="pageTitle">
+
+
+
+        {% block main_title %}
+        <!--
+        ##############################################
+        ##############################################
+        ##                                          ##
+        ##        __________________    ______      ##
+        ##       /_  __/  _/_  __/ /   / ____/      ##
+        ##        / /  / /  / / / /   / __/         ##
+        ##       / / _/ /  / / / /___/ /___         ##
+        ##      /_/ /___/ /_/ /_____/_____/         ##
+        ##                                          ##
+        ##############################################
+        ##############################################                                    
+        -->
+        {% endblock main_title %}
+
+
+
+    </title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <SCRIPT LANGUAGE="JavaScript">
+        <!--
+            //configuration
+            //If OAS_sitepage is set to {SECTION}{pagetype} it means you did not set the value in the .ini file.
+            var OAS_version,OAS_url,OAS_rns,OAS_listpos ="728x90_1,728x90_2,300x250_1,300x250_2";
+            OAS_sitepage='de-wilmington.delawareonline.com/news/front.htm';
+            OAS_query = ''+'&'+location.search.substring(1);
+        //--> </SCRIPT>
+
+    <link href="http://www.delawareonline.com/includes/css/ody/ody-local.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="http://www.delawareonline.com/odygci/p2/ody-styles-min.css"/>
+
+    <!-- Updated by GMTI for ad serving 03262008 -->
+    <script language="javascript1.1" type="text/javascript" src="http://wilmingt.ur.gcion.com/global/AD/AdtechGlobalSettings.js"></script>
+    <script language="javascript1.1" type="text/javascript" src="http://wilmingt.ur.gcion.com/AD/AdtechSiteSettings.js"></script>
+    <script language="javascript1.1" type="text/javascript" src="http://wilmingt.ur.gcion.com/Scripts/AD/Adtechscript.js"></script>
+    <link rel="stylesheet" type="text/css" href="//www.delawareonline.com/includes/css/ody/ody-local.css">
+    <link rel="stylesheet" type="text/css" href="//www.delawareonline.com/odygci/p2/ody-styles-min.css?odyv=1.03.0000"/>
+    
+    <style type="text/css">
+        img[src="http://s0.2mdn.net/dot.gif"] {
+            max-height: 70px !important;
+        } 
+    </style>
+
+    {% block main_styles %}
+    <!--
+    ##########################################################
+    ##########################################################
+    ##           _____________  ____    ___________         ##
+    ##          / ___/_  __/\ \/ / /   / ____/ ___/         ##
+    ##          \__ \ / /    \  / /   / __/  \__ \          ##
+    ##         ___/ // /     / / /___/ /___ ___/ /          ##
+    ##        /____//_/     /_/_____/_____//____/           ##
+    ##                                                      ##
+    ##########################################################
+    ##########################################################
+    -->
+        
+    {% load static %}
+    <!-- MAIN STYLESHEET -->
+    <link href="{% get_static_prefix %}main.css" rel="stylesheet" type="text/css">
+
+    {% endblock main_styles %}
+
+
+
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31089528-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript"> 
+var $buoop = {vs:{i:7,f:3.6,o:10.6,s:4,n:9}} 
+$buoop.ol = window.onload;
+window.onload=function(){ 
+ try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+ var e = document.createElement("script"); 
+ e.setAttribute("type", "text/javascript"); 
+ e.setAttribute("src", "http://browser-update.org/update.js"); 
+ document.body.appendChild(e); 
+} 
+</script> 
+</head>
+<body>
+    <!-- REQUIRED:Begin Header -->
+    <div class="ody-skin" style="background: white;">
+        <style>.ody-skin .cobrand input{height:auto; overflow:visible;}</style>
+        <div class="ody-custom cobrand">
+            <div class="main-container">
+                <link rel="stylesheet" type="text/css" href="//www.delawareonline.com/includes/css/ody/ody-local.css">
+                <link rel="stylesheet" type="text/css" href="//www.delawareonline.com/odygci/p2/ody-styles-min.css?odyv=1.1.1.1958"/>
+                <script type="text/javascript">var GEL={}</script>
+                <script type="text/javascript">
+                    if (typeof jQuery=="undefined") {
+                        document.writeln('<script type="text/javascript" src="//www.delawareonline.com/odygel/lib/3rdparty/jquery/jquery-1.7.1.min.js"><\/'+'script>');
+                    }
+                </script>
+                <link rel="stylesheet" type="text/css" href="//www.delawareonline.com/odygci/firefly.css">
+                <script type="text/javascript" src="//www.delawareonline.com/odygel/lib/firefly/firefly.js"></script>
+                <script type="text/javascript" src="//www.delawareonline.com/odygel/lib/widgets/articletools/slider.js"></script>
+                <script type="text/javascript" src="//www.delawareonline.com/odygel/lib/atypon/api.js"></script>
+                <script type="text/javascript" src="//www.delawareonline.com/odygel/lib/3rdparty/jquery/flxhr-1.0.6/deploy/flXHR.js"></script>
+                <script type="text/javascript">
+                    GEL.thepage={};
+                    GEL.thepage.pageinfo = { 
+                        key:"COBRANDHEADER",
+                        title:"cobrandheader",
+                        type:"section",
+                        categorymain:"cobrandheader",
+                        categoryname:"cobrandheader",
+                        categoryid:"COBRANDHEADER",
+                        url: { 
+                            hostname: "www.delawareonline.com",
+                            domainname: "delawareonline.com",
+                            domainroot: "delawareonline"
+                        },
+                        ssts:{
+                            adsiteid:"COBRANDHEADERsection",
+                            section:"",
+                            subsection:"",
+                            topic:"",
+                            subtopic:"",
+                            adpagetype:"COBRANDHEADERsection"
+                        },
+                        market: { 
+                            name: "The News Journal", 
+                            state: "Delaware",
+                            city: "Wilmington"
+                        },
+                        firefly: {
+                            cookieDomain: 'delawareonline.com',
+                            marketId: "BL",
+                            FBKey: '175037755863662',
+                            currentCount: 0,
+                            limitOne: 0,
+                            limitTwo: 7,
+                            pageProtected: true,
+                            apiUrl: 'https://myaccount.delawareonline.com',
+                            goUrl: 'https://myaccount.gcion.com/go',
+                            urlAfterRegistration: 'https://www.ganweb01.gannett.com/server?PROCFUN+ITRNPR06+ITRNF01+LIV',
+                            suppressInit:true
+                        }
+                    };
+                    fireflyJQuery(function(){
+                            if(typeof GEL.firefly == 'undefined') GEL.firefly = new GEL.ody_firefly(GEL.thepage.pageinfo.firefly);
+                            GEL.firefly.preInit();
+                        });
+                    fireflyJQuery(function(){
+                            if(typeof GEL.firefly == 'undefined') GEL.firefly = new GEL.ody_firefly(GEL.thepage.pageinfo.firefly);
+                            if(!GEL.firefly.initted)GEL.firefly.init();
+                        });
+                </script>
+                <div id="fb-root"></div>
+                <script type="text/javascript">
+                try {
+                      window.fbAsyncInit = function() {
+                        FB.init({
+                          appId      : '175037755863662', // App ID
+                          channelUrl : document.location.protocol + '//www.delawareonline.com/odygci/facebook/channel.html', // Channel File
+                          status     : true, // check login status
+                          cookie     : true, // enable cookies to allow the server to access the session
+                          oauth      : true,
+                          xfbml      : true  // parse XFBML
+                        });
+                        // Additional initialization code here
+                        // Share Tools
+                        FB.Event.subscribe('edge.create', function(href, widget) {
+                            var _vt = GEL.thepage.viewTracker;
+                            if (widget.dom.getAttribute("ref")) {
+                                _vt.providers.sitecat.trackLink("sharethis:facebook:like:" + widget.dom.getAttribute("ref"));
+                                }
+                        });
+                        FB.Event.subscribe('edge.remove', function(href, widget) {
+                            var _vt = GEL.thepage.viewTracker;
+                            if (widget.dom.getAttribute("ref")) {
+                                _vt.providers.sitecat.trackLink("sharethis:facebook:unlike:" + widget.dom.getAttribute("ref"));
+                                }
+                        });
+                      };
+                      // Load the SDK Asynchronously
+                      (function(d){
+                         var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+                         js = d.createElement('script'); js.id = id; js.async = true;
+                         js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                         d.getElementsByTagName('head')[0].appendChild(js);
+                       }(document));
+                 } catch (e) {}
+                </script>
+                    <script type="text/javascript">
+        var jQuery = fireflyJQuery;
+    </script>
+    <!-- JQUERY -->
+    {% load static %}
+    <script type="text/javascript" src="{% get_static_prefix %}jQuery.min.js"></script>
+                <div class="header-container">
+                    <div class="header-classified">
+                        <div class="header-wrap como">
+                            <ul>
+                                <li>
+                                    <a href="http://www.delawareonline.com/jobs">JOBS</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.delawareonline.com/cars">CARS</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.delawareonline.com/homes">HOMES</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.delawareonline.com/apartments">APARTMENTS</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.delawareonline.tv">DELAWAREONLINE TV</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.delawareonline.com/classifieds">CLASSIFIEDS</a>
+                                </li>
+                            </ul>
+                            <div id="comoNav">
+                                <ul id="login-container" class="login-container">
+                                    <li class="logout gel-hidden">
+                                        <a href="https://myaccount.delawareonline.com/account/" title="My account">
+                                            Hi,
+                                            <span class="name"></span>
+                                            <span class="dropdown"></span>
+                                        </a>
+                                        <ul>
+                                            <li class="account">
+                                                <a href="https://myaccount.delawareonline.com/account/" title="My account">My account</a>
+                                            </li>
+                                            <li class="newsletters">
+                                                <a href="https://myaccount.delawareonline.com/account/newsletters/index" title="Newsletters">Newsletters</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="http://www.delawareonline.com/" title="Log out">Log out</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="login gel-hidden">
+                                        <a href="http://www.delawareonline.com/section/como?screen=login" title="Log in">Log in</a>
+                                    </li>
+                                    <li class="subscribe highlight">
+                                        <a href="http://www.delawareonline.com/section/subscription-options" title="Subscribe">Subscribe</a>
+                                    </li>
+                                    <li class="activate">
+                                        <a href="http://www.delawareonline.com/section/como?screen=account-lookup" title="Activate">Activate</a>
+                                    </li>
+                                    <li class="eedition">
+                                        <a href="http://www.delawareonline.com/enewspaper" title="E-Newspaper">E-Newspaper</a>
+                                    </li>
+                                    <li id="tabhelp" class="mega tab help">
+                                        <a href="http://www.delawareonline.com/help">Help</a>
+                                    </li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            <!-- comoNav --> </div>
+                        <!-- header-wrap como --> </div>
+                    <!-- header-classified -->
+                    <div class="header-main">
+                        <div class="header-wrap">
+                            <div class="header-logo">
+                                <a name="top" href="http://www.delawareonline.com/" title="www.delawareonline.com Home"></a>
+                            </div>
+                            <!-- header-logo -->
+                            <div id="Nav">
+                                <ul class="nav-tabs">
+                                    <li id="tab0" class="mega tab 0">
+                                        <a href="http://www.delawareonline.com/news" class="first">News</a>
+                                    </li>
+                                    <li id="tab1" class="mega tab 1">
+                                        <a  href="http://www.delawareonline.com/sports">Sports</a>
+                                    </li>
+                                    <li id="tab2" class="mega tab 2">
+                                        <a  href="http://www.delawareonline.com/business">Business</a>
+                                    </li>
+                                    <li id="tab3" class="mega tab 3">
+                                        <a  href="http://www.delawareonline.com/entertainment">Entertainment</a>
+                                    </li>
+                                    <li id="tab4" class="mega tab 4">
+                                        <a  href="http://www.delawareonline.com/life">Life</a>
+                                    </li>
+                                    <li id="tab5" class="mega tab 5">
+                                        <a  href="http://www.delawareonline.com/apps/pbcs.dll/section?Category=SOCIALMEDIA">Social</a>
+                                    </li>
+                                    <li id="tab6" class="mega tab 6">
+                                        <a  href="http://www.delawareonline.com/opinion">Opinion</a>
+                                    </li>
+                                    <li id="tab7" class="mega tab 7">
+                                        <a class="special" href="http://www.delawareonline.com/obituaries">Obituaries</a>
+                                    </li>
+                                </ul>
+                                <div style="clear:both"></div>
+                            </div>
+                            <!-- Nav --> </div>
+                        <!-- header-wrap --> </div>
+                    <!-- header-main -->
+                    <div class="header-featured">
+                        <div class="header-wrap">
+                            <ul>
+                                <li> <strong>FEATURED:</strong>
+                                </li>
+                                <li>
+                                    <a href="http://delawaremoms.com/">Delaware Moms</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.delawareonline.com/dialogue">Dialogue</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.delawareonline.com/summercamps">Summer Camps</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.delawareonline.com/section/videonetwork?odyssey=mod|video">Video</a>
+                                </li>
+                                <li>
+                                    <a href="http://www.dealchicken.com/wilmington-de?source=IP|nav|dealchickenfeatured">DealChicken</a>
+                                </li>
+                            </ul>
+                            <div class="pd-search">
+                                <div class="searchbox-shift">
+                                    <script>
+                                        var search_default = "Find what you are looking for ...";
+                                        var timer = null;
+                                        function showOptions() {
+                                            var search_options = document.getElementById("search-options");
+                                            search_options.style.display = "";
+                                        }
+                                        function HideAllSearchOptions() {
+                                            var search_options = document.getElementById("search-options");
+                                            search_options.style.display = "none";
+                                        }
+                                        function submitFormAction() {
+                                            sanitizeKeywords();
+                                            var keywords = document.getElementById("searchbox").value;
+                                                if (keywords == search_default){
+                                                    keywords = "";
+                                                }
+                                            var search_form = document.getElementById("pd-header-search");
+                                            var checked_option = "";
+                                            for(var i = 0; i < search_form.searchoption.length; i++) {
+                                                if(search_form.searchoption[i].checked) {
+                                                    checked_option = search_form.searchoption[i].value;
+                                                }
+                                            }
+                                            var new_url = "";
+                                            if(checked_option === "OPTION1") new_url = "http://search.delawareonline.com/sp?aff=1100&skin=&keywords=";
+                                            else if(checked_option === "OPTION2") new_url = "http://pqasb.pqarchiver.com/delawareonline/results.html?st=basic&QryTxt=";
+                                            else if(checked_option === "OPTION3") new_url = "http://search.delawareonline.com/sp?aff=1180&keywords=";
+                                            else if(checked_option === "OPTION4") new_url = "http://search.delawareonline.com/sp?skin=&aff=1109&keywords=";
+                                            new_url = new_url + "" + keywords;
+                                            window.location.href = new_url;
+                                            return false; 
+                                        }   
+                                        function safeParam( key, def) { //get cleaned up keywords so they look pretty in the search box
+                                                var defval = def|| ""; 
+                                                var re = new RegExp( "[?&]" + key + "=([^&$]*)", "i" ); 
+                                                var offset = location.search.search(re); 
+                                                if ( offset == -1 || RegExp.$1 == '') return defval;
+                                                var keywords = RegExp.$1;
+                                                keywords = keywords.replace(/\+/g," ");
+                                                keywords = keywords.replace(/%\w{2}/g," ");
+                                                return keywords; 
+                                            }
+                                            function sanitizeKeywords() {
+                                                //clean up keywords for submit to avoid encoding
+                                                var temp = document.getElementById("searchbox").value;
+                                                temp = temp.replace(/<.*>/g,"");
+                                                temp = temp.replace(/%20/g," "); //get rid of whitespace encoding
+                                                temp = temp.replace(/%\w{2}/g, ""); //get rid of other encoding
+                                                document.getElementById("searchbox").value = temp
+                                            }   
+                                    </script>
+                                    <form method="get" id="pd-header-search" class="multi-search" onsubmit="return submitFormAction()" action=" ">
+                                        <div id="search-wrapper" class="clear">
+                                            <div id="search_border">
+                                                <input id="searchbox" type="text" size="34" maxlength="34" onfocus="if(this.value==='Find what you are looking for ...') this.value=''; showOptions();" onblur="if(this.value=='') this.value=safeParam('keywords','Find what you are looking for ...');timer=setTimeout('HideAllSearchOptions()',1500);" onkeydown="showOptions();"/>
+                                                <button class="search_btn" type="submit">Search</button>
+                                            </div>
+                                            <!-- search_border -->
+                                            <div id="search-options" style="display:none;" onmouseover="clearTimeout(timer);" onmouseout="timer=setTimeout('HideAllSearchOptions()',1500);">
+                                                <p>Search in</p>
+                                                <div class="left">
+                                                    <input class="submit" name="searchoption" type="radio" value="OPTION1" checked/>
+                                                    &nbsp;&nbsp;News
+                                                    <br/>
+                                                    <input class="submit" name="searchoption" type="radio" value="OPTION2" />
+                                                    &nbsp;&nbsp;Archives
+                                                </div>
+                                                <!-- left -->
+                                                <div class="left">
+                                                    <input class="submit" name="searchoption" type="radio" value="OPTION3" />
+                                                    &nbsp;&nbsp;Local Deals
+                                                    <br/>
+
+                                                    <input class="submit" name="searchoption" type="radio" value="OPTION4" />
+                                                    &nbsp;&nbsp;FindItNow
+                                                </div> <!-- left -->
+                                            </div> <!-- search-options -->
+                                        </div> <!-- search-wrapper -->
+                                    </form> <!-- pd-header-search -->
+                                    <script type="text/javascript">document.getElementById("searchbox").value = safeParam('keywords',search_default);</script>
+                                </div> <!-- searchbox-shift -->
+                            </div> <!-- pd-search -->
+                        </div> <!-- header-wrap -->
+                    </div> <!-- header-featured -->
+                </div> <!-- header-container -->
+            </div> <!-- main-container -->
+        </div> <!-- ody-custom cobrand -->
+        <div id="persistNotif" style="left:-420px;">
+            <div id="persistNotifContent">
+                <div class="firefly-numberLeftWrapper clearfix">
+                    <div class="firefly-numberLeft"></div>
+                    <div class="firefly-numberText"></div>
+                </div> <!-- firefly-numberLeftWrapper clearfix -->
+                <div id="persistSubscribe" class="clear">
+                    <a id="persViewOptions" href="http://www.delawareonline.com/section/subscription-options">Subscribe today for full access</a>
+                    <br>
+                </div> <!-- persistSubscribe -->
+                <div class="dangle">
+                    <a href="http://www.delawareonline.com/section/como?screen=account-lookup" title="Account Retrieval" class="account-lookup-top">Current subscriber? Activate your account</a>
+                </div>
+            </div> <!-- persistNotifContent -->
+        </div> <!-- persistNotif -->
+    </div> <!-- ody-skin -->
+    {% comment %}
+        <!--
+            ################################################################
+            ################################################################
+            ##       ____  ______  __   __  __               __           ##
+            ##      / __ \/ __ \ \/ /  / / / /__  ____ _____/ /__  _____  ##
+            ##     / / / / / / /\  /  / /_/ / _ \/ __ `/ __  / _ \/ ___/  ##
+            ##    / /_/ / /_/ / / /  / __  /  __/ /_/ / /_/ /  __/ /      ##
+            ##    \____/_____/ /_/  /_/ /_/\___/\__,_/\__,_/\___/_/       ##
+            ##                                                            ##
+            ################################################################
+            ################################################################                                                          
+        -->
+    {% endcomment %}
+    <!-- REQUIRED:End Header -->
+
+    <!-- BEGIN: MAIN CONTENT -->
+    
+    <div id='main_content' class="ody-skin">
+        <div class="content-container">
+            <div class="banner_ad">
+                {% include "ads_and_snippets/banner_ad.html" %}
+            <br />
+            </div>
+            
+
+            {% block main_content %}
+                
+                {% comment %}
+                    <!--
+                    #####################################################
+                    #####################################################
+                    ##        __  ______    _____   __                 ##
+                    ##       /  |/  /   |  /  _/ | / /                 ##
+                    ##      / /|_/ / /| |  / //  |/ /                  ##
+                    ##     / /  / / ___ |_/ // /|  /                   ##
+                    ##    /_/  /_/_/  |_/___/_/ |_/                    ##
+                    ##                                                 ##
+                    ##     __________  _   _______________   ________  ##
+                    ##    / ____/ __ \/ | / /_  __/ ____/ | / /_  __/  ##
+                    ##   / /   / / / /  |/ / / / / __/ /  |/ / / /     ##
+                    ##  / /___/ /_/ / /|  / / / / /___/ /|  / / /      ##
+                    ##  \____/\____/_/ |_/ /_/ /_____/_/ |_/ /_/       ##
+                    ##                                                 ##
+                    ##       __________  ___________                   ##
+                    ##      / ____/ __ \/ ____/ ___/                   ##
+                    ##     / / __/ / / / __/  \__ \                    ##
+                    ##    / /_/ / /_/ / /___ ___/ /                    ##
+                    ##    \____/\____/_____//____/                     ##
+                    ##                                                 ##
+                    ##        __  ____________  ______                 ##
+                    ##       / / / / ____/ __ \/ ____/                 ##
+                    ##      / /_/ / __/ / /_/ / __/                    ##
+                    ##     / __  / /___/ _, _/ /___                    ##
+                    ##    /_/ /_/_____/_/ |_/_____/                    ##
+                    ##                                                 ##
+                    #####################################################
+                    #####################################################
+                    -->
+                {% endcomment %}
+
+
+            {% endblock main_content %}
+
+            <div class="banner_ad">
+            <br />
+            {% include "ads_and_snippets/banner_ad.html" with ad_number=2 %}
+            </div>
+
+        </div> <!-- END content-container -->
+    </div> <!-- END main_content -->
+    
+    {% comment %}
+        <!-- 
+            ####################################################################
+            ####################################################################
+            ##           ____  ______  __   ______            __              ##
+            ##          / __ \/ __ \ \/ /  / ____/___  ____  / /____  _____   ##
+            ##         / / / / / / /\  /  / /_  / __ \/ __ \/ __/ _ \/ ___/   ##
+            ##        / /_/ / /_/ / / /  / __/ / /_/ / /_/ / /_/  __/ /       ##
+            ##        \____/_____/ /_/  /_/    \____/\____/\__/\___/_/        ##
+            ##                                                                ##
+            ####################################################################
+            ####################################################################
+        -->
+    {% endcomment %}
+    
+    <div class="ody-skin"  style="background: white;">
+        <div class="ody-custom">
+
+            <div class="main-container">
+                <link rel="stylesheet" type="text/css" href="//www.delawareonline.com/includes/css/ody/ody-local.css">
+                <link rel="stylesheet" type="text/css" href="//www.delawareonline.com/odygci/p2/ody-styles-min.css"/>
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-top">
+                            <div class="footer-wrap">
+                                <div class="footer-logo">
+
+                                    <a href="http://www.delawareonline.com"></a>
+                                </div>
+                                <div class="right">
+                                    <a href="http://www.delawareonline.com/section/sitemaphtml">Site Map</a>
+                                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a href="#top">Back to Top</a>
+                                    <span class="backtotop">&nbsp;</span>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="footer-main">
+
+                            <div class="footer-wrap">
+                                <div class="left">
+                                    <ul>
+                                        <li>
+                                            <h4>
+                                                <a href='http://www.delawareonline.com/news'>NEWS</a>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/communities'>Communities</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/crimeandcourts'>Crime & Courts</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/politics'>Gov't & Politics</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/schools'>Education</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/data'>Data</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/special'>Special reports</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/traffic'>Traffic</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/lottery'>Lotteries</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://content.usatoday.com/dist/custom/gci/topicpage.aspx?cid=delawareonline'>Nation/World</a>
+                                        </li>
+                                        <li>
+                                            <h4>
+                                                <a href='http://www.delawareonline.com/entertainment'>ENTERTAINMENT</a>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <a href='http://delaware.metromix.com/movies'>Movies & TV</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/music'>Music</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/dining'>Food & Dining</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/arts'>Arts & Theater</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://wilming.planetdiscover.com/sp?skin=&aff=1000'>Events</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://delaware.metromix.com/bars-and-clubs'>Bars & Clubs</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.udigtv.com/privatelabel2/delawareonline/'>TV listings</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/crossword'>Crossword</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://delaware.metromix.com/'>Metromix</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawarebeaches.com/'>Beaches</a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <h4>
+                                                <a href='http://www.delawareonline.com/sports'>SPORTS</a>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/blogs'>Blogs</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.highschoolsports.net/local/Wilmington/'>High Schools</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/ud'>UD</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/dsu'>DSU/Colleges</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/phillies'>Phillies</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/eagles'>Eagles</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/76ers'>76ers</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/flyers'>Flyers</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/nascar'>NASCAR</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/gambling'>Gambling</a>
+                                        </li>
+                                        <li>
+                                            <h4>
+                                                <a href='http://www.delawareonline.com/apps/pbcs.dll/section?Category=SOCIALMEDIA'>SOCIAL</a>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.facebook.com/pages/Delawareonline/94480694479'>Facebook</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/twitter'>Twitter</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/blogs'>Blogs</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.dealchicken.com/wilmington-de'>Deal Chicken</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/apps/pbcs.dll/section?Category=mobile'>Text alerts</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/nlettersubscribe'>E-mail alerts</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/rssfeeds'>RSS</a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <h4>
+                                                <a href='http://www.delawareonline.com/business'>BUSINESS</a>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <a href='http://blogs.delawareonline.com/delawareinc'>Blog</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/financialliteracy'>Financial Literacy</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/business08'>Innovate Delaware</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/business06'>Economy</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/business05'>Banking</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/markets'>Markets</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/business11'>Jobs</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/business13'>Health Care</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/business09'>Technology</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/business10'>Personal Finance</a>
+                                        </li>
+                                        <li>
+                                            <h4>
+                                                <a href='http://www.delawareonline.com/opinion'>OPINION</a>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/ourview'>Editorials</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/letters'>Letters</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/OPINION18'>Local columnists</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/section/OPINION16'>National columnists</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/delawarevoices'>Delaware Voices</a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li>
+                                            <h4>
+                                                <a href='http://www.delawareonline.com/entertainment'>ENTERTAINMENT</a>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <a href='http://delaware.metromix.com/movies'>Movies & TV</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/music'>Music</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/dining'>Food & Dining</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/arts'>Arts & Theater</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://wilming.planetdiscover.com/sp?skin=&aff=1000'>Events</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://delaware.metromix.com/bars-and-clubs'>Bars & Clubs</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.udigtv.com/privatelabel2/delawareonline/'>TV listings</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawareonline.com/crossword'>Crossword</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://delaware.metromix.com/'>Metromix</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.delawarebeaches.com/'>Beaches</a>
+                                        </li>
+                                        <li>
+                                            <h4>
+                                                <a href='http://www.delawareonline.com/obituaries'>OBITUARIES</a>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.legacy.com/obituaries/delawareonline/obituary-search.aspx'>Search obituaries</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.legacy.com/obituaries/delawareonline/obituary-browse.aspx?recentdate=0&type=1'>Guest books</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="right">
+                                    <ul>
+                                        <li>
+                                            <h4>
+                                                <a href='http://www.delawareonline.com/obituaries'>OBITUARIES</a>
+                                            </h4>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.legacy.com/obituaries/delawareonline/obituary-search.aspx'>Search obituaries</a>
+                                        </li>
+                                        <li>
+                                            <a href='http://www.legacy.com/obituaries/delawareonline/obituary-browse.aspx?recentdate=0&type=1'>Guest books</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="right_row">
+                                        <li>
+                                            <h4>FOLLOW US</h4>
+                                        </li>
+
+                                        <li class="icn_follow_twitter">
+                                            <a href="http://www.delawareonline.com/twitter">Twitter</a>
+                                        </li>
+                                        <li class="icn_follow_facebook">
+                                            <a href="http://www.delawareonline.com/facebook">Facebook</a>
+                                        </li>
+                                        <li class="icn_follow_mobile">
+                                            <a href="http://www.delawareonline.com/mobile">Mobile</a>
+                                        </li>
+                                        <li class="icn_follow_rss">
+                                            <a href="http://www.delawareonline.com/rssfeeds">RSS</a>
+                                        </li>
+                                        <li class="icn_follow_email">
+                                            <a href="http://www.delawareonline.com/newsletters">E-mail Alerts</a>
+                                        </li>
+                                        <li class="icn_follow_text">
+                                            <a href="http://www.delawareonline.com/mobile">Text Alerts</a>
+                                        </li>
+
+                                        <li class="icn_follow_rss">
+                                            <a href="http://www.delawareonline.com/subscribe">Subscribe</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="right_rowBot">
+                                        <li>
+                                            <h4>EXTRAS</h4>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.delawareonline.tv/">Delawareonline TV</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.spark247.com/">Spark</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.signaturebrandywine.com/">Signature</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="http://www.delawareautoshow.com/">Delaware Auto Show</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.delawareonline.com/getinvolved">Get Involved</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.needyfamily.org/">Needy Family Fund</a>
+                                        </li>
+                                        <li>
+                                            <a href="/nie">Newspaper in Education</a>
+                                        </li>
+                                    </ul>
+                                    <!-- pbs:macro name="ody_footermenupdsearch" --> </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="footer-partners">
+                            <div class="footer-wrap">
+                                <ul>
+                                    <li>
+                                        <a class="footer-usatoday" href="http://www.usatoday.com" target="_blank"></a>
+                                    </li>
+
+                                    <li>
+                                        <a class="footer-cars" href="/cars" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="footer-homefind" href="/realestate" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="footer-apts" href="/apartments" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="footer-homegain" href="http://www.homegain.com/" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="footer-shop" href="/shoplocal" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="footer-demoms" href="http://delawaremoms.com" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="footer-metromix" href="http://delaware.metromix.com" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="footer-eharmony" href="/dating" target="_blank"></a>
+                                    </li>
+                                    <li>
+                                        <a class="footer-tnjmg" href="http://tnjmg.com" target="_blank"></a>
+                                    </li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="footer-gannett">
+                            <a href="http://www.gannett.com" target="_blank">
+                                <img src="//www.delawareonline.com/odygci/p2/ody_gannett_footer.gif" alt="Gannett" title="Gannett"></a>
+                        </div>
+                        <p class="footer-bottom">
+                            Copyright &copy; 2012 www.delawareonline.com. All rights reserved.
+                            <br />
+                            Users of this site agree to the
+                            <a href="http://www.delawareonline.com/section/terms">Terms of Service</a>
+                            ,
+                            <a href="http://www.delawareonline.com/section/privacy">Privacy Notice/Your California Privacy Rights</a>
+                            , and
+                            <a href="http://www.delawareonline.com/section/privacy#adchoices">Ad Choices</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- REQUIRED:End Footer -->
+    <!--Site Catalyst macro -->
+    <!-- sitecatalyst.pbo version 1.47 2007.11.07 -->
+    <!-- Added tracking for Pluck pages -->
+
+    <!-- Previous version (1.46 2007.06.06) comments: -->
+    <!-- Added rsiseg validation for sites not running zag -->
+    <!-- Changed RSI categorization value to be other for non SSTS sections -->
+    <script type="text/javascript">
+if(typeof gcion_enable_bt != 'undefined') {
+  if(gcion_enable_bt) {
+  document.writeln('<script type="text/javascript" src="http://js.revsci.net/gateway/gw.js?csid=J06575" charset="ISO-8859-1"></s' + 'cript>');
+  }
+}
+</script>
+    <s_suiteID_default value="delawareonline" />
+    <!-- SiteCatalyst code version: H.3. Copyright 1997-2005 Omniture, Inc. More info available at http://www.omniture.com -->
+    <script type="text/javascript" language="JavaScript">
+<!--
+s_account="gpaper184,gntbcstglobal";
+s_prop50="Newspaper";
+//-->
+</script>
+    <cobrandsitedomain value="www" />
+    <sitedomain value="delawareonline" />
+<script type="text/javascript">
+    var g_affilSstatId = '';
+</script>
+    
+    <script type="text/javascript" language="JavaScript" src="http://content.gannettonline.com/global/s_code/s_code.js"></script>
+    <script type="text/javascript" language="JavaScript">
+if(typeof gcion_enable_bt != 'undefined') {
+  if(gcion_enable_bt) {
+      var gciYear = 2008;
+      DM_addToLoc("zipcode", escape(s.prop30));
+      DM_addToLoc("age", escape((gciYear-s.prop31)));
+    DM_addToLoc("gender", escape(s.prop32));
+        var gci_ssts=OAS_sitepage;
+        gci_ssts=gci_ssts.replace(/\/article\.htm.*$/,'');
+        gci_ssts=gci_ssts.replace(/\/front\.htm.*$/,'');
+        gci_ssts=gci_ssts.replace(/\/index\.htm.*$/,'');
+            gci_ssts=gci_ssts.replace(/\@.*$/,'');
+        gci_ssts=gci_ssts.replace(/^.*\.com\//,'');
+        var gci_tempossts=gci_ssts; 
+        var gci_ossts=gci_tempossts.split("/")
+        gci_ssts=gci_ssts.replace(/\//g,' > ');
+        gci_ssts='newspaper > '+gci_ssts;       
+        if
+            (  gci_ossts[0] == "life"
+            || gci_ossts[0] == "money"
+            || gci_ossts[0] == "news"
+            || gci_ossts[0] == "sports"
+            || gci_ossts[0] == "tech"
+            || gci_ossts[0] == "travel"
+            || gci_ossts[0] == "weather"
+        || gci_ossts[0] == "umbrella"
+            )
+            {
+              DM_cat(gci_ssts);
+            }
+            else
+            {
+              DM_cat('newspaper > other');
+            }
+      var gci_osstslen=gci_ossts.length;
+        for(var i=0; i<gci_osstslen; i++) {
+          if(i==0)
+            s.prop17=gci_ossts[i];   // section
+          if(i==1)
+            s.prop18=gci_ossts[i];   // subsection
+          if(i==2)
+            s.prop19=gci_ossts[i];   // topic
+          if(i==3)
+            s.prop20=gci_ossts[i];   // Subtopic
+        }
+        DM_tag();
+    try
+    {
+      if (gdn_version == 2)
+      {
+        // Sets the "rsi_segs" cookie in GCION domain
+        if (gcion_enable_bt) {
+          if (GCION.Cookies.Cookie.Exists(gcion_session_cookie)) {
+            var session = GCION.Cookies.BrowserSession.GetData(gcion_session_cookie);
+            if (session.UpdateBTCookie == 1 && !GCION.Utils.Data.IsNullOrEmpty(rsinetsegs))
+            {
+              GCION.Utils.Include.Once(GCION.Utils.Data.GetGcionUrl("q=5&Segment=" + escape(rsinetsegs.join('|'))));
+              session.UpdateBTCookie = 0;
+              GCION.Cookies.BrowserSession.Create(gcion_session_cookie, session);
+            }
+          }
+        }
+      }
+      else
+      {
+        // Sets the "rsi_segs" cookie in GCION domain
+        if (gdn_enable_bt)
+        {
+          if (GDN.Cookie.Exists(GDN.Cookies.Session.Name))
+          {
+            var updateBtCookie = GDN.Cookies.Session.GetValue("ubt");
+            if (updateBtCookie == "1" && !GDN.IsNullOrEmpty(rsinetsegs))
+            {
+              GDN.Rpc.Send(GDN.RegUrl("q=5&Segment=" + escape(rsinetsegs.join('|'))));
+              GDN.Cookies.Session.SetValue("ubt", "0");
+            }
+          }
+        }
+      }
+    }
+    catch (e)
+    {
+      // Sets the "rsi_segs" cookie in GCION domain
+      if (gdn_enable_bt)
+      {
+        if (GDN.Cookie.Exists(GDN.Cookies.Session.Name))
+        {
+          var updateBtCookie = GDN.Cookies.Session.GetValue("ubt");
+          if (updateBtCookie == "1" && !GDN.IsNullOrEmpty(rsinetsegs))
+          {
+            GDN.Rpc.Send(GDN.RegUrl("q=5&Segment=" + escape(rsinetsegs.join('|'))));
+            GDN.Cookies.Session.SetValue("ubt", "0");
+          }
+        }
+      }
+    }
+    }
+}
+</script>
+
+    <script type="text/javascript" language="JavaScript">
+
+var pluckcategory= "Wilmington"; 
+if(typeof IsPluckPage !='undefined' && IsPluckPage==1){
+var plucktitleTagdiv = document.getElementById("plckTitleTag");
+var titleTag = plucktitleTagdiv ? plucktitleTagdiv.innerText || plucktitleTagdiv.textContent : "unknown";
+if (titleTag != "") 
+s_pageName=pluckcategory + "-" + titleTag; 
+else 
+s_pageName=pluckcategory + "-unknown";
+}
+</script>
+    <script type="text/javascript" language="JavaScript">
+<!--
+String.prototype.trim = function() {return $.trim(this)} 
+var ps_pageTitle = $("#pageTitle").text().trim();
+s.server="publicus"
+if(typeof s_pageName!='undefined'){s.pageName=s_pageName}else{s.pageName=ps_pageTitle}
+if(typeof s_channel!='undefined'){s.channel=s_channel}
+if(typeof s_pageType!='undefined'){s.pageType=s_pageType}
+if(typeof s_prop1!='undefined'){s.prop1=s_prop1}else{s.prop1=""}
+if(typeof s_prop2!='undefined'){s.prop2=s_prop2}else{s.prop2=""}
+if(typeof s_prop3!='undefined'){s.prop3=s_prop3}else{s.prop3=""}
+if(typeof s_prop4!='undefined'){s.prop4=s_prop4}else{s.prop4=""}
+if(typeof s_prop5!='undefined'){s.prop5=s_prop5}else{s.prop5=""}
+if(typeof s_prop6!='undefined'){s.prop6=s_prop6}else{s.prop6="datacenter"}
+if(typeof s_prop7!='undefined'){s.prop7=s_prop7}else{s.prop7=ps_pageTitle}
+if(typeof s_prop8!='undefined'){s.prop8=s_prop8}else{s.prop8=""}
+s.prop23=document.location
+s.prop16='PHP database'
+s.prop25="New Castle:delawareonline"
+if(typeof rsinetsegs!='undefined'){s.prop48=(rsinetsegs.join('|')).replace(/J06575_/g,'');}else{s.prop48='no segment';}
+s.prop50=s_prop50;
+if(s.prop7){s.eVar5=s.prop7;}
+if(s.prop25){s.eVar1=s.prop25;}
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+    <script language="JavaScript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script>
+    <noscript>
+        <img src="http://gpaper184.112.2O7.net/b/ss/gpaper184,gntbcstglobal/1/H.3--NS/0"    height="1" width="1" border="0" alt="" />
+    </noscript>
+    <!--/DO NOT REMOVE/-->
+    <!-- End SiteCatalyst code version: H.3. -->
+
+</body>
+</html>

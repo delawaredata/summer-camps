@@ -1,0 +1,29 @@
+{% extends "camps/main.html" %}
+{% block main_content %}
+<div class="row">
+	<div class="span6">
+		<form action="" method="post">
+			{% csrf_token %}
+			<fieldset>
+				<legend>{{ state }}</legend>
+				{% if next %}
+				<input type="hidden" name="next" value="{{ next }}" />
+				{% endif %}
+				Username:
+				<input type="text" name="username" value="{{ username }}" /><br />
+				Password:
+				<input type="password" name="password" value="" /><br />
+			</fieldset>
+			<input type="submit" class="btn" value="Log In" />
+		</form>
+	</div>
+	<div class="span6">
+		<div class="well">
+			<h3>Forgot your password?</h3>
+			<p>
+				<a href="mailto:psweet@delawareonline.com?subject=Camps Account Help">Contact us</a> to recover your account.
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock main_content %}

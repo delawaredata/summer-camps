@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+	<title>DelawareOnline | Summer Camps</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+<!-- REQUIRED:Begin Header -->
+	<div class="ody-skin" style="background: white;">
+		<div class="ody-custom">
+			<div class="main-container">
+				<link rel="stylesheet" type="text/css" href="//www.delawareonline.com/includes/css/ody/ody-local.css">
+<link rel="stylesheet" type="text/css" href="//www.delawareonline.com/odygci/p2/ody-styles-min.css"/>
+<script type="text/javascript">
+var GEL={}
+</script>
+<script type="text/javascript">
+if (typeof jQuery=="undefined") {
+	document.writeln('<script type="text/javascript" src="//www.delawareonline.com/odygel/lib/3rdparty/jquery/jquery-1.7.2.min.js"><\/'+'script>');
+}
+</script>
+<link rel="stylesheet" type="text/css" href="//www.delawareonline.com/odygci/firefly.css">
+<script type="text/javascript" src="//www.delawareonline.com/odygel/lib/widgets/articletools/slider.js"></script> 
+<script type="text/javascript" src="//www.delawareonline.com/odygel/lib/3rdparty/jquery/flxhr-1.0.6/deploy/swfobject.js"></script>
+<script type="text/javascript" src="//www.delawareonline.com/odygel/lib/3rdparty/jquery/flxhr-1.0.6/deploy/flXHR.js"></script>
+<script type="text/javascript" src="//www.delawareonline.com/odygel/lib/atypon/api.js"></script>
+<script type="text/javascript" src="//www.delawareonline.com/odygel/lib/firefly/firefly.js"></script>
+<script type="text/javascript">
+	GEL.thepage={};
+	GEL.thepage.pageinfo = { 
+		key:"SectionFront",
+		title:"SectionFront",
+		type:"SectionFront",
+		categorymain:"SectionFront",
+		categoryname:"SectionFront",
+		categoryid:"SectionFront",
+		url: { 
+			hostname: "www.delawareonline.com",
+			domainname: "",
+			domainroot: ""
+		},
+		ssts:{
+			adsiteid:"",
+			section:"",
+			subsection:"",
+			topic:"",
+			subtopic:"",
+			adpagetype:""
+		},
+		market: { 
+			name: "The News Journal", 
+			state: "Delaware",
+			city: "Wilmington"
+		},
+	firefly: {
+		apiUrl: 'https://myaccount.delawareonline.com',
+		apiUrlGlobal: 'https://myaccount.gcion.com',
+		cookieDomain: '',
+		FBKey: '175037755863662',
+		keepNclickOnLogin: false,
+		limitOne: 7,
+		limitTwo: 7,
+		marketId: "",
+		sitecode: "BL",
+		ssoSiteToken: '6a64536d6a35627a555834782b774949693266537066396864614a32677978594a576e45446a7366787249766e38762b4c62674266736473463348764941376335357179754c6b33456142654774504572474c324635422f6437546b63586e5251496e774e6d4453304d4a4e4c6362305a5459446b326469436b734344414452537a5559317955716b506f3d',
+		ssoTimeout: 3,
+		suppressInit: true,
+		urlAfterRegistration: 'https://www.ganweb01.gannett.com/server?PROCFUN+ITRNPR06+ITRNF01+LIV'
+	}
+	};
+	fireflyJQuery(function(){
+		if(typeof GEL.firefly == 'undefined') GEL.firefly = new GEL.ody_firefly(GEL.thepage.pageinfo.firefly);
+		GEL.firefly.preInit();
+		if(!GEL.firefly.initted)GEL.firefly.init();
+	});
+</script>
+<div class="ody-navLite">
+	<div class="ody-navLite-box">
+		<div class="ody-logoLite ody-cobrandLogoLite"><a href="http://www.delawareonline.com" target="_parent"></a></div>
+	</div>
+</div>
+
+			</div>
+		</div>
+	</div>	
+<!-- REQUIRED:End Header -->
+<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}bootstrap/css/bootstrap.min.css">
+		<div class="container">
+			<div class="row">
+				<div class="span12">
+					<div class="page-header">
+				    	<h1><a href="{% url camps.views.main_page %}">The News Journal Summer Camps Guide</a> <small>Submissions</small></h1>
+				    </div>
+				</div>
+			</div>
+			<div class="row">
+				{% block main_content %}
+				<div class="span4">
+					<div class="well">						
+						{% if user.is_authenticated %}
+						<p>
+							<strong>Welcome {{ user.get_full_name }}</strong>
+						</p>
+						<ul class="nav nav-tabs nav-stacked">
+							<li>
+								<a href="{% url camps.views.management_page %}">Manage Camps</a>
+							</li>
+							{% if user.is_staff %}
+							<li>
+								<a href="http://data.delawareonline.com/webapps/admin/camps">Admin Panel</a>
+							</li>
+							{% endif %}
+							<li>
+								<a href="{% url camps.views.userlogout %}">Logout</a>
+							</li>
+						</ul>
+						{% else %}
+						<p style="text-align:center;">
+							<strong>Get started today!</strong>
+						</p>
+						<p>
+							Registration is <em>free</em> and separate from The News Journal subscription system. There is no need to have a subscription to submit camps. 
+						</p>
+						<p style="text-align:center;">
+							First time seeing this page?<br>
+							<a class="btn" href="{% url camps.views.register %}">Register</a> 
+						</p>
+						<p style="text-align:center;">
+							Already registered?<br>
+							<a class="btn" href="{% url camps.views.org_login %}">Login</a>
+						</p>
+						{% endif %}
+					</div>
+				</div>
+				<div class="span8">
+					{% if new_account %}
+						<div class="row">
+							<div class="span8">
+								<div class="alert alert-success">
+								    <button type="button" class="close" data-dismiss="alert">&times;</button>
+								    <h2>Success! <small>Thank you for registering.</small></h2>
+								    To begin submitting camps, hit the login button to the left.
+							    </div>
+							</div>
+						</div>
+					{% endif %}
+					<img class="img-rounded" style="border:thin solid #ddd" src="{% get_static_prefix %}Camps_Main.png" alt="This is an image of the special section.">
+				</div>
+				{% endblock main_content %}
+			</div>
+			<hr>
+			<div class="row">
+				<div class="span6">
+					<p>Built by <a href="mailto:psweet@delawareonline.com">Patrick Sweet</a></p>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="{% get_static_prefix %}bootstrap/js/bootstrap.min.js"></script>
+		{% block extra_scripts %}
+			
+		{% endblock extra_scripts %}
+
+
+<!-- REQUIRED:Begin Footer -->
+	<div class="ody-skin" style="background: white;">
+		<div class="ody-custom">
+			<div class="main-container">
+				<link rel="stylesheet" type="text/css" href="//www.delawareonline.com/includes/css/ody/ody-local.css">
+<link rel="stylesheet" type="text/css" href="//www.delawareonline.com/odygci/p2/ody-styles-min.css"/>
+<div class="ody-footLite">
+	<ul>
+<li><a href="http://www.delawareonline.com/news">News</a> | </li><li><a href="http://www.delawareonline.com/sports">Sports</a> | </li><li><a href="http://www.delawareonline.com/business">Business</a> | </li><li><a href="http://www.delawareonline.com/entertainment">Entertainment</a> | </li><li><a href="http://www.delawareonline.com/life">Life</a> | </li><li><a href="http://www.delawareonline.com/apps/pbcs.dll/section?Category=SOCIALMEDIA">Social</a> | </li><li><a href="http://www.delawareonline.com/opinion">Opinion</a> | </li><li><a href="http://www.delawareonline.com/obituaries">Obituaries</a> | </li><li><a href="http://www.delawareonline.com/help">Help</a> </li>
+	</ul>
+	<p>
+	Copyright &copy; 2013 www.delawareonline.com. All rights reserved.
+	Users of this site agree to the <a href="http://www.delawareonline.com/section/terms" target="_blank">Terms of Service</a>, <a href="http://www.delawareonline.com/section/privacy" target="_blank">Privacy Notice</a>, and <a href="http://www.delawareonline.com/section/privacy#adchoices" target="_blank">Ad Choices</a>
+</p>
+</div>
+
+			</div>
+		</div>
+	</div>	
+<!-- REQUIRED:End Footer -->
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+{% extends "camps/main.html" %}
+{% block main_content %}
+{% load static %}
+<link rel="stylesheet" href="{% get_static_prefix %}datepicker/css/datepicker.css">
+<div class="row">
+	<div class="span4">
+			<div class="well">
+				<h3>
+					{{ org.organization }}
+				</h3>
+				<p>
+					<strong>Contact:</strong><br>
+					{{ org.user.get_full_name }}
+				</p>
+				<p>
+					<strong>Address:</strong><br>
+					{{ org.address }}<br>
+					{{ org.city }}, {{ org.state }} {{ org.zip_code }}
+				</p>
+				<p>
+					<strong>Phone:</strong><br>
+					{{ org.phone }}
+				</p>
+				<p>
+					<strong>E-mail:</strong><br>
+					{{ org.user.email }}
+				</p>
+				<p>
+					<strong>Website:</strong><br>
+					{% if org.website %}
+					<a href="{{ org.website }}">{{ org.website|cut:"http://" }}</a>
+					{% else %}
+					None
+					{% endif %}
+				</p>
+				<hr>
+				<ul class="nav nav-tabs nav-stacked">
+					<li>
+						<a href="{% url camps.views.management_page %}">Manage Camps</a>
+					</li>
+					<li>
+						<a href="{% url camps.views.userlogout %}">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<div class="span8">
+		{% for error in campform.non_field_errors %}
+			<div class="alert alert-error">
+    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+    			{{ error }}
+			</div>
+		{% empty %}
+			<div class="alert alert-info">
+			    <button type="button" class="close" data-dismiss="alert">&times;</button>
+			    <h3>Want to make this camp really shine?</h3>
+			    <a href="mailto:CampGuideAds@DelawareOnline.com?subject=Help make my camp great." class="btn">Contact</a> The News Journal about advertisments and camp highlights.
+			</div>
+		{% endfor %}
+		<form method="post" action="">
+			{% csrf_token %}
+			<fieldset>
+				<legend>
+					Basics <small>(* Required)</small>
+				</legend>
+				<label>
+		    		* Camp name{% for error in campform.camp_name.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+		    	</label>
+				{{ campform.camp_name }}
+				<div class="row">
+					<div class="span4">
+						<label>
+				    		* Category{% for error in campform.category.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				    	</label>
+				    	{{ campform.category }}
+					</div>
+					<div class="span4">
+						<label class="checkbox">
+					    	{{ campform.new }} Check if this is the camp's first year{% for error in campform.new.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				    	</label>
+					</div>
+				</div>
+				<label>
+		    		* Camp info.{% for error in campform.info.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+		    	</label>
+		    	{{ campform.info }}
+		    	<div class="row">
+		    		<div class="span3">
+		    			<label>
+				    		Minimum age{% for error in campform.min_age.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				    	</label>
+				    	{{ campform.min_age }}
+		    		</div>
+		    		<div class="span3">
+		    			<label>
+				    		Maximum age{% for error in campform.max_age.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				    	</label>
+				    	{{ campform.max_age }}
+		    		</div>
+		    		<div class="span2">
+		    			<label>
+				    		No. of campers{% for error in campform.vacancies.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				    	</label>
+				    	{{ campform.vacancies }}
+		    		</div>
+		    	</div>
+		    	<div class="row">
+		    		<div class="span4">
+		    			<label>
+				    		* Start Date{% for error in campform.start_date.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				    	</label>
+				    	{{ campform.start_date }}
+		    		</div>
+		    		<div class="span4">
+		    			<label>
+				    		* End Date{% for error in campform.end_date.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				    	</label>
+				    	{{ campform.end_date }}
+		    		</div>
+		    	</div>
+			    	{% for error in campform.times.errors %}
+		    			<div class="alert alert-error">
+			    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			    			{{ error|escape }}
+						</div>
+		    		{% endfor %}
+	    			<label>
+	    				Camp Times
+	    			</label>
+			    	{{ campform.times }}
+		    	{% for error in campform.cost.errors %}
+	    			<div class="alert alert-error">
+		    			<button type="button" class="close" data-dismiss="alert">&times;</button>
+		    			{{ error|escape }}
+					</div>
+	    		{% endfor %}
+    			<label>
+    				* Cost details
+    			</label>
+		    	{{ campform.cost }}
+			</fieldset>
+			<fieldset>
+				<legend>
+					Camp Location
+				</legend>
+				<label>
+					Camp venue{% for error in campform.venue.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				</label>
+				{{ campform.venue }}
+				<label class="checkbox">
+					<input type="checkbox" id="use_org_address">Camp location is the same as my organization's address.
+				</label>
+				<label>
+					* Address{% for error in campform.address.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				</label>
+				{{ campform.address }}
+				<div class="row">
+					<div class="span4">
+						<label>
+				    		* City{% for error in campform.city.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				    	</label>
+						{{ campform.city }}
+					</div>
+					<div class="span4">
+						<label>
+				    		* State{% for error in campform.state.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+				    	</label>
+						{{ campform.state }}
+					</div>
+				</div>
+				<div class="row">
+					<div class="span4">
+						<label>
+							* ZIP code{% for error in campform.zip_code.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+						</label>
+						{{ campform.zip_code }}
+					</div>
+					<div class="span4">
+						<label>
+							* My camp is located in:{% for error in campform.county.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+						</label>
+						{{ campform.county }}
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Contacts</legend>
+				<div class='row'>
+					<div class="span4">
+						{% if org.website %}
+							<label class="checkbox">
+								<input type="checkbox" id="use_org_website"> Use my organization's website.
+							</label>
+						{% endif %}
+						<label>
+							Website{% for error in campform.website.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+						</label>
+						{{ campform.website }}
+					</div>
+					<div class="span4">
+						<label class="checkbox">
+							<input type="checkbox" id="use_org_phone"> Use my organization's phone number.
+						</label>
+						<label>
+							Phone Number{% for error in campform.phone.errors %} <span class="label label-important">{{ error|escape }}</span>{% endfor %}
+						</label>
+						{{ campform.phone }}
+					</div>
+				</div>
+			</fieldset>
+			<hr>
+			<p>
+				<strong>Have a photo of your camp?</strong> <a href="mailto:dlucas@delawareonline.com?subject=PUT CAMP NAME HERE&body=Be sure to include the name of the camp in the subject line and information about what is happening in the picture, especially names and places, in the body of the email.">Click here</a> to e-mail us a high-resolution photo.
+				<br>
+				<em>Minimum photo dimensions: 1,500 pixels x 2,100 pixels</em>
+			</p>
+			<hr>
+			{% if camp %}
+				<button type="submit" class="btn btn-primary btn-large">Save</button>
+				<a href="{% url camps.views.delete_camp_page camp_id=camp.id %}" id="delete_camp" class="pull-right btn btn-large btn-danger">Delete Camp</a>
+			{% else %}
+				<button type="submit" class="btn btn-primary btn-large">Submit</button>
+			{% endif %}
+		</form>
+	</div>
+</div>
+{% endblock main_content %}
+{% block extra_scripts %}
+<script type="text/javascript" src="{% get_static_prefix %}datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+	
+	function date_fix() {
+		var start_date = '{{ camp.start_date|date:"SHORT_DATE_FORMAT" }}';
+		var end_date = '{{ camp.end_date|date:"SHORT_DATE_FORMAT" }}';
+		if (start_date != "" && end_date != "") {
+			$("#id_start_date").attr('value', start_date);
+			$("#id_end_date").attr('value', end_date);
+		}
+	}
+
+	$("document").ready(function() {
+		date_fix();
+		
+		$(".datepicker").datepicker({
+			format: 'mm/dd/yyyy'
+		});
+
+		$("#delete_camp").click(function() {
+			camp_name = "{{ camp.camp_name }}";
+			confirmation = confirm("Are you sure you want to delete " + camp_name + "?");
+			if (!confirmation) {
+				return false;
+			}
+		});
+
+		$("#use_org_address").click(function() {
+			if (this.checked){
+				$("#id_address").val("{{ org.address }}");
+				$("#id_city").val("{{ org.city }}");
+				$("#id_state").val("{{ org.state }}");
+				$("#id_zip_code").val("{{ org.zip_code }}");
+			} else {
+				$("#id_address").val("");
+				$("#id_city").val("");
+				$("#id_state").val("");
+				$("#id_zip_code").val("");				
+			}
+		});
+		$("#use_org_phone").click(function() {
+			if (this.checked) {
+				$("#id_phone").val("{{ org.phone }}");
+			} else {
+				$("#id_phone").val("");
+			}
+		});
+		$("#use_org_website").click(function() {
+			if (this.checked) {
+				$("#id_website").val('{{ org.website|cut:"http://" }}');
+			} else {
+				$("#id_website").val('');
+			}
+		});
+
+	});
+</script>
+{% endblock extra_scripts %}
